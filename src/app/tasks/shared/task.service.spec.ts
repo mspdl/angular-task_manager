@@ -5,7 +5,7 @@ describe('TaskService', () => {
   let service: TaskService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({ providers: [TaskService] });
     service = TestBed.inject(TaskService);
   });
 
