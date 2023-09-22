@@ -19,7 +19,7 @@ export class TaskService {
     localStorage[this.LOCAL_TASKS] = JSON.stringify(currentTasks);
   }
 
-  searchTaskById(taskId: number): Task {
+  getTaskById(taskId: number): Task {
     const currentTasks: Task[] = this.getAllTasks();
     return currentTasks.find((task) => (task.id = taskId));
   }
