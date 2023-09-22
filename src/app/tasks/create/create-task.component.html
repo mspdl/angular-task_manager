@@ -1,1 +1,32 @@
-<p>create-task works!</p>
+<h1>New Task</h1>
+
+<div class="well">
+  <form>
+    <div class="form-group">
+      <label for="name">Task:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        minlength="5"
+        required
+        placeholder="Insert here the task name"
+      />
+      <ul class="alert alert-danger">
+        <li>Write the task name</li>
+        <li>Task name has to have at least 5 characters.</li>
+      </ul>
+    </div>
+    <div class="form-group text-center">
+      <input type="submit" class="btn btn-success" value="Create" />
+      <a class="btn btn-default">
+        <span
+          class="glyphicon glyphicon-chevron-left"
+          aria-hidden="true"
+        ></span>
+        Back
+      </a>
+    </div>
+  </form>
+</div>
