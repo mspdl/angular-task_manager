@@ -4,17 +4,17 @@
   <tbody>
     <tr>
       <th>Task Title</th>
-      <th>Completed</th>
-      <th class="text-center">
+      <th class="text-center completed-column">Completed</th>
+      <th class="text-center action-buttons-column">
         <a class="btn btn-xs btn-success">
           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New
         </a>
       </th>
     </tr>
-    <tr>
-      <td></td>
-      <td class="text-center completed-column">
-        <input type="checkbox" />
+    <tr *ngFor="let task of tasks">
+      <td [class.success]="task.isDone">{{ task.name }}</td>
+      <td [class.success]="task.isDone" class="text-center completed-column">
+        <input type="checkbox" [value]="task.id" [checked]="task.isDone" />
       </td>
       <td class="text-center action-buttons-column">
         <a title="Edit" alt="Edit" class="btn btn-xs btn-info">
@@ -29,3 +29,5 @@
     </tr>
   </tbody>
 </table>
+
+<p *ngIf="tasks.length === 0">No tasks created.</p>
