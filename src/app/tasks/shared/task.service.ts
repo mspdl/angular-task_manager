@@ -12,7 +12,7 @@ export class TaskService {
     return tasks ? JSON.parse(tasks) : [];
   }
 
-  addTask(task: Task): void {
+  createTask(task: Task): void {
     const currentTasks = this.getAllTasks();
     task.id = new Date().getTime();
     currentTasks.push(task);
