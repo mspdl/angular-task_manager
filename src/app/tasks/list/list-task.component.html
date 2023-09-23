@@ -6,7 +6,7 @@
       <th>Task Title</th>
       <th class="text-center completed-column">Completed</th>
       <th class="text-center action-buttons-column">
-        <a class="btn btn-xs btn-success" [routerLink]="['/tasks/add']">
+        <a class="btn btn-xs btn-success" [routerLink]="['/task/']">
           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New
         </a>
       </th>
@@ -18,7 +18,7 @@
       </td>
       <td class="text-center action-buttons-column">
         <a
-          [routerLink]="['/tasks/edit/', task.id]"
+          [routerLink]="['/task/', task.id]"
           title="Edit"
           alt="Edit"
           class="btn btn-xs btn-info"

@@ -1,5 +1,4 @@
-export * from '../create';
-export * from '../edit';
+export * from '../task';
 export * from '../list';
 export * from './task.model';
 export * from './task.service';

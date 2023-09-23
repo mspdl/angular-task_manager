@@ -4,13 +4,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Task, TaskService } from '../shared';
 
 @Component({
-  selector: 'app-edit-task',
-  templateUrl: './edit-task.component.html',
-  styleUrls: ['./edit-task.component.scss'],
+  selector: 'app-task',
+  templateUrl: './task.component.html',
+  styleUrls: ['./task.component.scss'],
 })
-export class EditTaskComponent implements OnInit {
+export class TaskComponent implements OnInit {
   @ViewChild('taskForm', { static: true }) taskForm: NgForm;
-  task: Task;
+  task: Task = new Task();
+
+  onEditMode: boolean = true;
 
   constructor(
     private taskService: TaskService,
@@ -20,12 +22,23 @@ export class EditTaskComponent implements OnInit {
 
   ngOnInit(): void {
     const taskId = +this.route.snapshot.params['id'];
-    this.task = this.taskService.getTaskById(taskId);
+    if (!taskId) {
+      this.onEditMode = false;
+    } else {
+      this.task = this.taskService.getTaskById(taskId);
+    }
   }
 
   onUpdate(): void {
     if (this.taskForm.form.valid) {
       this.taskService.updateTask(this.task);
+      this.router.navigate(['tasks']);
+    }
+
+  }
+  onCreate(): void {
+    if (this.taskForm.form.valid) {
+      this.taskService.createTask(this.task);
       this.router.navigate(['tasks']);
     }
   }

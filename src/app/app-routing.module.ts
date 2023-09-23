@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TaskRoutes } from './tasks';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/tasks/list', pathMatch: 'full' },
+  { path: '', redirectTo: '/tasks', pathMatch: 'full' },
   ...TaskRoutes,
 ];
 
