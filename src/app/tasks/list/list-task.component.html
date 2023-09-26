@@ -12,7 +12,9 @@
       </th>
     </tr>
     <tr *ngFor="let task of tasks">
-      <td [class.success]="task.isDone">{{ task.name }}</td>
+      <td [taskDone]="task.isDone" [class.success]="task.isDone">
+        {{ task.name }}
+      </td>
       <td [class.success]="task.isDone" class="text-center completed-column">
         <input
           type="checkbox"

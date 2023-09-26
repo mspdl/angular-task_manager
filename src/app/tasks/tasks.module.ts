@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { TaskComponent } from './task';
 import { ListTaskComponent } from './list';
-import { TaskService } from './shared';
+import { TaskDoneDirective, TaskService } from './shared';
+import { TaskComponent } from './task';
 
 @NgModule({
-  declarations: [ListTaskComponent, TaskComponent],
+  declarations: [ListTaskComponent, TaskComponent, TaskDoneDirective],
   imports: [CommonModule, FormsModule, RouterModule],
   providers: [TaskService],
 })
