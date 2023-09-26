@@ -26,13 +26,6 @@ export class TaskService {
 
   updateTask(updatedTask: Task): void {
     const currentTasks: Task[] = this.getAllTasks();
-    /* Teacher's method
-    updatedTasks.forEach((task, index, tasks) => {
-      if (updatedTask.id === task.id) {
-        tasks[index] = updatedTask;
-      }
-    });
-    */
     const foundTaskIndex = currentTasks.findIndex(
       (task) => task.id == updatedTask.id
     );
@@ -48,19 +41,14 @@ export class TaskService {
     localStorage[this.LOCAL_TASKS] = JSON.stringify(updatedTasks);
   }
 
-  changeTaskStatus(taskId: number) {
+  changeTaskStatus(checkedTask: Task) {
     const currentTasks: Task[] = this.getAllTasks();
-    /* Teacher's method
-    updatedTasks.forEach((task, index, tasks) => {
-      if (updatedTask.id === task.id) {
-        tasks[index] = updatedTask;
-      }
-    });
-    */
-    const foundTask = currentTasks.find((task) => task.id == taskId);
-    if (foundTask) {
-      currentTasks[foundTask.id].isDone = !foundTask.isDone;
+    const foundTaskIndex = currentTasks.findIndex((task) => task.id == checkedTask.id);
+    if (foundTaskIndex >= 0) {
+      currentTasks[foundTaskIndex].isDone =
+        !currentTasks[foundTaskIndex].isDone;
     }
     localStorage[this.LOCAL_TASKS] = JSON.stringify(currentTasks);
   }
+
 }

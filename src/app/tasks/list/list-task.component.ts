@@ -26,4 +26,9 @@ export class ListTaskComponent implements OnInit {
       this.updateTasks();
     }
   }
+
+  onCheckTask(task: Task): void {
+    this.taskService.changeTaskStatus(task);
+    this.updateTasks();
+  }
 }
